@@ -14,6 +14,7 @@ import { DeliveryOptionsDataService } from "./services/delivery-options.service"
 import { ProductsDataService } from "./services/products.service";
 import { ShoppingCartService } from "./services/shopping-cart.service";
 import { LocalStorageServie, StorageService } from "./services/storage.service";
+import { WebBluetoothModule } from '@manekinekko/angular-web-bluetooth';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -28,7 +29,10 @@ import { LocalStorageServie, StorageService } from "./services/storage.service";
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    WebBluetoothModule.forRoot({
+      enableTracing: true
+    })
   ],
   providers: [
     ProductsDataService,
