@@ -1,0 +1,29 @@
+<div class="row">
+    <!-- card-reader -->
+
+    <mat-grid-tile colspan="1" rowspan="2">
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+              Select Card Reader <span *ngIf="(cardreader.device | async) as device">({{ device.name }})</span>
+              <button mat-icon-button class="more-button" [matMenuTriggerFor]="menuBattery" aria-label="Toggle menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menuBattery="matMenu" xPosition="before">
+                <button mat-menu-item *ngIf="!(cardreader.device | async)" (click)="cardreader.requestValue()">
+                  <mat-icon>bluetooth_searching</mat-icon>
+                  Connect
+                </button>
+                <button mat-menu-item *ngIf="(cardreader.device | async)" (click)="cardreader.disconnect()">
+                  <mat-icon>bluetooth_disabled</mat-icon>
+                  Disconnect
+                </button>
+              </mat-menu>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <ble-card-reader #cardreader></ble-card-reader>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+</div>

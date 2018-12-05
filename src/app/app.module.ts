@@ -15,11 +15,16 @@ import { ProductsDataService } from "./services/products.service";
 import { ShoppingCartService } from "./services/shopping-cart.service";
 import { LocalStorageServie, StorageService } from "./services/storage.service";
 import { WebBluetoothModule } from '@manekinekko/angular-web-bluetooth';
+import { CardReaderComponent } from './components/card-reader/card-reader.component';
+import { MatMenuModule} from '@angular/material/menu';
+import { MatIconModule, MatCardModule, MatGridListModule, MatProgressSpinnerModule, MatSnackBarModule, MatExpansionModule, MatListModule, MatButtonModule, MatToolbarModule } from "@angular/material";
+import { LayoutModule } from "@angular/cdk/layout";
 
 @NgModule({
   bootstrap: [AppComponent],
   declarations: [
     AppComponent,
+    CardReaderComponent,
     ShoppingCartComponent,
     StoreFrontComponent,
     CheckoutComponent,
@@ -32,7 +37,18 @@ import { WebBluetoothModule } from '@manekinekko/angular-web-bluetooth';
     AppRoutingModule,
     WebBluetoothModule.forRoot({
       enableTracing: true
-    })
+    }),
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatListModule,
+    MatExpansionModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule
   ],
   providers: [
     ProductsDataService,
